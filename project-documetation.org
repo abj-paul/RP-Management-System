@@ -1,0 +1,165 @@
+
+
+
+~BEFORE GOING INTO IMPLEMENTING SERVICES AND ADDITIONAL FEATURE, I MUST LOOK INTO THREADING.~
+
+* Features
+- Make treasure, talisman objects.
+* Documentation
+Run launcher/Main.java to execture the program.
+* Todo
+** DONE "Search" function to search usernames
+** DONE how should i show the info in lable, textbox after searching?
+Use a search and update_viewWindow function
+use a search and update_editWindow function
+** DONE Core database
+It will be a ~ArrayList of daoist objects~. 
+** Save the database
+We need a to-string method for daoist object. This way, we can save and load them later.
+- Make a database object
+- Now create the object and make it static. This way, we can access it from anywhere and add methods to it. To verify that -
+-- open test project 
+-- create database class 
+-- create database object
+-- call the object from other classes.
+** Document every command/interaction in a log file
+To ensure we can recover the files, 
+- save file when opening the program in a log file
+- save state of database after pressing a button in a log file
+- backup user info before deleting a user
+** Button alternative "Enter"
+Commands will run if we press Enter. It makes workflow faster.
+** DONE Default values for textFields and ArrayList relation
+** Add documentation on what each element does
+
+like whats cultivation base and cultivatio stage
+pills does not yet increase stat
+number of pills or talisman does not do anything in EDIT USER INFO section.
+** Temp
+*** buttons
+btnSearch_view
+btnSearch_Edit
+btnSaveInfo_Edit
+btnAddUser
+btnRemoveUser
+*** labels
+lblUsername
+lblUserId
+lblUserAge
+lblCultivationStage
+lblDebuff_view
+lblbuff
+lblQiDeviationProbablity
+*** Textfields
+
+textUserName
+txtUserId
+txtUserAge
+
+txtBuff
+txtDebuff
+txtQiDeviationProbablity
+
+txtpnARegularUser
+
+txtNumOfPill
+txtNumberOfTalisman
+txtNumberOfFormation
+
+txtAttack
+txtDefense
+txtSpeed
+
+txtAddCultivationBase
+txtAddAdditionalItem
+**** Converting set to get might work
+ #+begin_src java
+ textUserName.setText(ManageDatabase.database.get(index).getName());
+ txtUserId.setText(ManageDatabase.database.get(index).getUser_id());
+ txtUserAge.setText(ManageDatabase.database.get(index).getAge());
+ 
+ txtBuff.setText(ManageDatabase.database.get(index).get_last_Buff_effect());
+ txtDebuff.setText(ManageDatabase.database.get(index).get_last_Debuff_effect());
+ txtQiDeviationProbablity.#+setupfile: Text(Double.toString(ManageDatabase.database.get(index).getQiDeviationProbablity()));
+ 
+ //txtpnARegularUser LATER
+ txtNumOfPill.setText("0");
+ txtNumberOfTalisman.setText("0");
+ txtNumberOfFormation.setText("0");
+ 
+ txtAttack.setText(Double.toString(ManageDatabase.database.get(index).getStat_attack()));
+ txtDefense.setText(Double.toString(ManageDatabase.database.get(index).getStat_defense()));
+ txtSpeed.setText(Double.toString(ManageDatabase.database.get(index).getStat_speed()));
+					
+ txtAddCultivationBase.setText(Double.toString(ManageDatabase.database.get(index).getCultivation_base()));
+ txtAddAdditionalItem.setText("A random rock.");
+ #+end_src
+*** Combo Boxes
+comboBox_Tresure
+comboBox_cultivationArt
+//comboBox_sect
+
+comboBox_pill
+comboBox_talisman
+comboBox_formation
+
+//comboBox_cultivation_stage
+*** TODO Paused at line 618 - need to work with combo boxes
+** Add spirit stone in EDIT INFO
+** Syncing data between devices 
+** DONE Set default text when pressed save info
+* Later
+- Add ~cultivation skills~ to ~cultivation art list~ in ADD USER Section.
+- Work with ~Internal Info~ and ~Current Missions~  in VIEW USER INFO section.
+- Work with Active Status in EDIT INFO later. ~txtpnARegularUser~
+- deduct SS when buying pills and treasures in EDIT INFO section.
+Software Plans -
+Adding Mission Function
+Adding Body Physique Services
+Updating Documentation
+Online Platform for syncing up data
+* Is it possible to do it in java? (Not Pointer Arithmetic)
+The problem statement is in the next passage. It can be easily done using pointer in c or c++ but can we do it in java? (Yes, java does not support pointer arithmetic)
+
+#+begin_src java
+//I have 100 string. If the strings are not "SPAM", I want to add "I like you." to it.
+
+class A {
+  String[] ALL_MESSAGES = {"I am human.","SPAM", "Poof"};
+  String a;
+  String b;
+  String c;
+  void NOTICE_MEE(){
+     
+  }
+}
+
+#+end_src
+
+#+begin_src java
+fill_data(
+
+this.user_id = afill_data([1]);
+this.qiDeviationProbablity = Double.parseDouble(afill_data([2]));
+this.current_sect = fill_data(a[3]);
+this.stat_attack = Double.parseDouble(a[4]);
+this.stat_defense = Double.parseDouble(a[5]);
+this.stat_speed = Double.parseDouble(a[6]);
+this.cultivatio_stage = fill_data(a[7]);
+this.cultivation_base = Double.parseDouble(a[8]);
+this.spirit_stone = Integer.parseInt(a[9]);
+
+this.cultivationArt = convert_string_to_arrayList(a[10]);
+this.buff_effect = convert_string_to_arrayList(a[11]);
+
+this.debuff_effect = convert_string_to_arrayList(a[12]);
+this.formation = convert_string_to_arrayList(a[13]);
+
+this.talisman = convert_string_to_arrayList(a[14]);
+this.pills_taken = convert_string_to_arrayList(a[15]);
+
+this.treasure = convert_string_to_arrayList(a[16]);
+this.storage_pouch = convert_string_to_arrayList(a[17]);
+		
+this.age = a[18];
+#+end_src

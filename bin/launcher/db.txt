@@ -1,0 +1,2 @@
+Abhijit Paul|10-1|0.01|Wooden Paradise Sect|100.0|2000.0|100.0|Qi Gathering 3rd|56.0|5000|Frozen Heave|Strength +10%|None.|Golden Qi Formation|Golden Barrier Talisman|Defense Pill|Golden Needle|Cultivation Silk Robe|20
+Meow|10-2|0.01|Soaring Sword Sect|100.0|100.0|100.0|Qi Formation 1st|30.0|5000|Frozen Heave,True Yang Art|None.|None.|True Yang Formation |Refill Mana Talisman|True Yang Pill|Flying Sword|Cultivation Silk Robe|20
